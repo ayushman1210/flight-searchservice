@@ -2,7 +2,6 @@ const express=require('express');
 const bodyParser=require('body-parser')
 const {port}=require('./config/serverconfig.js')
 
-
 const setupserver=async function(){
 const app=express();
 
