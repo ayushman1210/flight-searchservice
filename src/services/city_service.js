@@ -1,13 +1,13 @@
 const {CityRepository}=require('../repository/index')
 
-class CityService{
+class CityService {
     constructor(){
         this.CityRepository=new CityRepository();
     }
 
     async createcity(data){
         try {
-            const city= await this.CityRepository.createcity(data);
+            const city= await this.CityRepository.createCity(data);
             return city;
         } catch (error) {
             console.log("something error in service layer");
@@ -44,3 +44,5 @@ class CityService{
         }
     }
 }
+
+module.exports=CityService;

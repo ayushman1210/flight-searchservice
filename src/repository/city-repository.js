@@ -1,10 +1,11 @@
-const { City }=require('../models/index.js');
+const {city} = require('../models/city.js');
+// const { City }=require('../models/index.js');
 
-class CityRepository{
-    async createcity({name}){
+class CityRepository {
+    async createCity({name}){
         try{
-            const city=await City.create({name});
-            return city;
+            const City=await city.create({name})
+            return City;
         }
         catch(error){
             console.log("something wrong in the repository layer")
@@ -12,22 +13,23 @@ class CityRepository{
         }
     }
 
-    async deletecity(cityid){
+    async deleteCity(cityid){
         try{
-            await City.destroy({
+            await city.destroy({
                 where:{
                     id:cityid
                 }
             });
+            return true;
         }
         catch(error){
             console.log("something wrong in the repository layer")
             throw{error};
         }
     }
-    async updatecity(cityid,data){
+    async updateCity(cityid,data){
         try {
-            const updatedcity=await City.update(data,{
+            const updatedcity=await city.update(data,{
                 where:{
                     id:cityid
                 }
@@ -39,9 +41,9 @@ class CityRepository{
             throw(error)
         }
     }
-    async getcity({cityid}){
+    async getCity({cityid}){
         try {
-            const city=await City.findByPk(cityid);
+            const city=await city.findByPk(cityid);
             return city;
         } catch (error) {
             console.log("something wrong in the repository layer")
