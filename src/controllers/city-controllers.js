@@ -18,7 +18,8 @@ try {
         success:false,
         data:{},
         message:'not able to create a city',
-        err:{error}
+        err:{error},
+        data:(req.body)
     })
 }
 }
